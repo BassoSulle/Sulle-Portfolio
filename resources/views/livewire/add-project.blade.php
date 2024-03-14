@@ -20,7 +20,8 @@
 
                       <div class="col-12">
                         <label for="inputEmail4" class="form-label">Discription</label>
-                        <input type="email" class="form-control" id="inputEmail4">
+                        <textarea required="required"  type="text" class="form-control" name="content   " id="editor"></textarea>
+
                       </div>
 
                         <div class="row mt-3">
@@ -52,3 +53,9 @@
     </div>
 
 </div>
+
+{{-- Java script for textarea input type --}}
+<script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+        <script type="text/javascript">
+        CKEDITOR.replace('editor')
+        </script>
