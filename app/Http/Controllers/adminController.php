@@ -56,4 +56,9 @@ class adminController extends Controller
         return view('admin_panel.add_research');
 
     }
+    public function profile(){
+
+        return view('admin_panel.profile');
+
+    }
 }

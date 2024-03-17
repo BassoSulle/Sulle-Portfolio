@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,14 @@ Route::get('/books', [IndexController::class, 'books'])->name('books');
 Route::get('/contact', [IndexController::class, 'contact'])->name('contact');
 
 
+//Log in routes
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/verify_email', [LoginController::class, 'verify_email'])->name('verity_email');
+Route::get('/reset_password', [LoginController::class, 'reset_password'])->name('reset_password');
+
+
 //Admin Routes.
 Route::get('/admin', [adminController::class, 'index'])->name('dashboard');
 Route::get('/article-list', [adminController::class, 'article'])->name('article-list');
@@ -38,3 +47,8 @@ Route::get('/add_article', [adminController::class, 'add_article'])->name('add_a
 Route::get('/add_book', [adminController::class, 'add_book'])->name('add_book');
 Route::get('/add_project', [adminController::class, 'add_project'])->name('add_project');
 Route::get('/add_research', [adminController::class, 'add_research'])->name('add_research');
+Route::get('/profile', [adminController::class, 'profile'])->name('profile');
+
+
+
+

@@ -80,20 +80,13 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="{{route('profile')}}">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
             </li>
             <li>
               <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-lock"></i>
-                <span>Change Password</span>
-              </a>
             </li>
             <li>
               <hr class="dropdown-divider">

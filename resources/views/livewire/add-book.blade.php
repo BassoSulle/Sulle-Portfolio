@@ -30,16 +30,19 @@
                                 </div>
                     </div>
                     <div class="col-md-6">
-                    <div class="col-6">
-                                    <label for="inputAddress" class="form-label">Status</label>
-                                    <input type="text" class="form-control" id="inputAddress">
-                                </div>
+                        <div class="col-6">
+                            <label for="statusCheckbox" class="form-label">Status</label>
+                            <div id="statusCheckbox">
+                                <input type="checkbox" class="form-check-input me-2"id="activeCheckbox" name="status" value="active">
+                                <label for="activeCheckbox" class="form-check-label">Visible / hidden</label>
+                            </div>
+                        </div>
                     </div>
                     </div>
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-secondary">Reset</button>
-                  </div>
+                    <div class="text-end my-3" >
+                        <button type="reset" class="btn btn-secondary ">Clear</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                      </div>
                 </form><!-- Vertical Form -->
 
               </div>
