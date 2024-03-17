@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("title");
             $table->string("image");
             $table->text("project_desc");
-            $table->boolean('is_active')->default(true);
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

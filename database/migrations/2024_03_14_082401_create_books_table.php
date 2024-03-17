@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("title");
             $table->text("book_desc");
             $table->string("image");
-            $table->boolean('is_active')->default(true);
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

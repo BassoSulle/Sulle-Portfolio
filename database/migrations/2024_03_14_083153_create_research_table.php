@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("title");
             $table->string("image"); //VARCH for imange path(URL)
             $table->string("research_desc");
-            $table->boolean('is_active')->default(true);
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

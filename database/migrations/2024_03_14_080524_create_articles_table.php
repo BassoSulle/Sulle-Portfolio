@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->string("content");
-            $table->boolean('is_active')->default(true);
+            $table->text("content");
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }
