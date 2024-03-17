@@ -75,17 +75,17 @@
                       </div>
                     </div> --}}
 
-                    <div class="col-12">
+                    <div class="col-12 my-3">
                       <label for="yourEmail" class="form-label">Email</label>
                       <input type="email" name="email" class="form-control" id="yourEmail" required>
                       <div class="invalid-feedback">Please enter your email!</div>
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-12 my-3">
                       <button class="btn btn-primary w-100" type="submit">Verify</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
+                      <p class="small mb-0">Back to <a href="{{route('login')}}">Login</a></p>
                     </div>
                   </form>
 
