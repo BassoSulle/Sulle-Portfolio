@@ -67,13 +67,21 @@
                                             <p class="text-center small">Enter your username & password to login</p>
                                         </div>
 
-                                        <form class="row g-3 needs-validation" novalidate>
+                                        <div class="pt-2 pb-1">
+                                            @error('error')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+
+                                        <form class="row g-3 needs-validation" method="post"
+                                            action="{{ route('authenticate') }}">
+                                            @csrf
 
                                             <div class="col-12">
                                                 <label for="yourUsername" class="form-label">Email</label>
                                                 <div class="input-group has-validation">
                                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                                    <input type="text" name="username" class="form-control"
+                                                    <input type="text" name="email" class="form-control"
                                                         id="yourUsername" required>
                                                     <div class="invalid-feedback">Please enter your Email.</div>
                                                 </div>

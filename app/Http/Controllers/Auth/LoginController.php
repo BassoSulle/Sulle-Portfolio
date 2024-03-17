@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -18,23 +22,59 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    // use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function show_login()
     {
-        $this->middleware('guest')->except('logout');
+        return view('auth.login');
+            
+    }
+
+    public function authenticate(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        // $remember_me = $request->has('remember');
+
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+
+            $request->session()->regenerate();
+
+            return redirect()->intended(route('dashboard'));
+
+            
+        } else {
+
+            return redirect()->back()->with('error', 'Invalid email or password');
+            
+        }
+        
+    }
+
+    public function userProfile() {
+        // $email = auth()->user()->email;
+
+        return view('admin_panel.user_profile');
+    }
+
+    public function changePassword() {
+        // $email = auth()->user()->email;
+
+        return view('auth.passwords.reset');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect(route('login'));
     }
 
     public function verify_email(){
