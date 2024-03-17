@@ -22,8 +22,6 @@ class LoginController extends Controller
     |
     */
 
-    // use AuthenticatesUsers;
-
     public function show_login()
     {
         return view('auth.login');
@@ -53,15 +51,13 @@ class LoginController extends Controller
         }
         
     }
+    
+    public function verify_email(){
 
-    public function userProfile() {
-        // $email = auth()->user()->email;
-
-        return view('admin_panel.user_profile');
+        return view('auth.passwords.email');
     }
 
-    public function changePassword() {
-        // $email = auth()->user()->email;
+    public function reset_password(){
 
         return view('auth.passwords.reset');
     }
@@ -77,13 +73,4 @@ class LoginController extends Controller
         return redirect(route('login'));
     }
 
-    public function verify_email(){
-
-        return view('auth.passwords.email');
-    }
-
-    public function reset_password(){
-
-        return view('auth.passwords.reset');
-    }
 }

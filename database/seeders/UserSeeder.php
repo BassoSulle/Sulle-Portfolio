@@ -19,9 +19,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         // Check delete existing user
-        $user = DB::table('users')->delete();
+        // $user = DB::table('users')->delete();
 
-        if ($user) {
+        // if ($user) {
             User::create([
                 'name' => 'Emmanuel Sulle',
                 'email' => 'sulleemmanule@gmail.com',
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ]);
 
-        }
+        // }
 
 
     }
