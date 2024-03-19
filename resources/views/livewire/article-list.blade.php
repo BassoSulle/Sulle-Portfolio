@@ -14,26 +14,27 @@
                 <th scope="col">Actioin</th>
               </tr>
             </thead>
+                @php
+                $i=1;
+                @endphp
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Brandon Jacob</td>
-                <td>Designer</td>
-                <td>28</td>
-                <td>28</td>
-                <td>
-                    <button type="button" class="btn btn-info text-white" title="View"><i class="bi bi-eye-fill"></i></button>
-                    <button type="button" class="btn btn-warning text-white" title="Edit"><i class="bi bi-pen-fill"></i></button>
-                    <button type="button" class="btn btn-danger text-white" title="Delete"><i class="bi bi-trash-fill"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Bridie Kessler</td>
-                <td>Developer</td>
-                <td>35</td>
-                <td>2014-12-05</td>
-              </tr>
+                @forelse ($articles as $article )
+            <tr>
+                    <th scope="row">{{$i++}}</th>
+                    <td>{{$article->title}}</td>
+                    <td>{{$article->content}}</td>
+                    <td>{{$article->date}}</td>
+                    <td>{{$article->status}}</td>
+                    <td>
+                        <button type="button" class="btn btn-info text-white" title="View"><i class="bi bi-eye-fill"></i></button>
+                        <button type="button" class="btn btn-warning text-white" title="Edit"><i class="bi bi-pen-fill"></i></button>
+                        <button type="button" class="btn btn-danger text-white" title="Delete"><i class="bi bi-trash-fill"></i></button>
+                    </td>
+                </tr>
+                @empty
+            <p>There is no data  in this page</p>
+                @endforelse
+
             </tbody>
           </table>
           <!-- End Primary Color Bordered Table -->

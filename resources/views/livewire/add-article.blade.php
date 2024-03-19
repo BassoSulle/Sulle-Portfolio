@@ -6,15 +6,22 @@
             <h5 class="card-title">Add articles</h5>
 
             <!-- Vertical Form -->
-            <form class="row g-3">
+            <form class="row g-3" wire:submit.prevent="save_article">
+                @csrf
               <div class="col-12">
                 <label for="inputNanme4" class="form-label">Title</label>
-                <input type="text" class="form-control" id="inputNanme4">
+                <input type="text" class="form-control" wire:model="title" id="inputNanme4">
+                @error('title')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
               </div>
+
               <div class="col-12">
                 <label for="inputEmail4" class="form-label">Content</label>
-                <textarea required="required"  type="text" class="form-control" name="content   " id="editor"></textarea>
-
+                <textarea required="required"  type="text" class="form-control" wire:model="content"  id="editor"></textarea>
+                {{-- @error('content')
+                <span class="text-danger">{{ $message }}</span>
+                 @enderror --}}
               </div>
 
                 <div class="row mt-3">
@@ -22,14 +29,20 @@
 
                 <div class="col-6">
                                 <label for="inputPassword4" class="form-label">Date</label>
-                                <input type="date" class="form-control" id="inputPassword4">
+                                <input type="date" class="form-control" wire:model="date" id="inputPassword4">
+                                @error('date')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                             </div>
                 </div>
                 <div class="col-md-6">
                     <div class="col-6">
                         <label for="statusCheckbox" class="form-label">Status</label>
                         <div id="statusCheckbox">
-                            <input type="checkbox" class="form-check-input me-2"id="activeCheckbox" name="status" value="active">
+                            <input type="checkbox" class="form-check-input me-2"id="activeCheckbox" wire:model="status" value="active">
+                            @error('status')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                             <label for="activeCheckbox" class="form-check-label">Visible / hidden</label>
                         </div>
                     </div>

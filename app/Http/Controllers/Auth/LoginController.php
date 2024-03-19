@@ -25,7 +25,7 @@ class LoginController extends Controller
     public function show_login()
     {
         return view('auth.login');
-            
+
     }
 
     public function authenticate(Request $request): RedirectResponse
@@ -43,15 +43,15 @@ class LoginController extends Controller
 
             return redirect()->intended(route('dashboard'));
 
-            
+
         } else {
 
             return redirect()->back()->with('error', 'Invalid email or password');
-            
+
         }
-        
+
     }
-    
+
     public function verify_email(){
 
         return view('auth.passwords.email');
