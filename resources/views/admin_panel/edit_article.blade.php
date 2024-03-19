@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    <livewire:add-article :article=null />
+    <livewire:add-article :article="$article" />
 @endsection
