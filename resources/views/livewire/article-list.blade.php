@@ -32,7 +32,7 @@
                     </td>
                 </tr>
                 @empty
-            <p>There is no data  in this page</p>
+                <p>There is no data  in this page</p>
                 @endforelse
 
             </tbody>
