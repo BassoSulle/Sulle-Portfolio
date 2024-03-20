@@ -27,6 +27,26 @@
   <link href="{{asset('admin_assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{asset('admin_assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
 
+{{-- CSS for notifiacations --}}
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+ {{-- RTL version --}}
+
+ <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+ <!-- Default theme -->
+ <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
+ <!-- Semantic UI theme -->
+ <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/>
+ <!-- Bootstrap theme -->
+ <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
+
   <!-- Template Main CSS File -->
   <link href="{{asset('admin_assets/css/style.css')}}" rel="stylesheet">
 
@@ -100,7 +120,6 @@
 
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
-
       </ul>
     </nav><!-- End Icons Navigation -->
 
@@ -123,16 +142,16 @@
           <i class="bi bi-menu-button-wide"></i><span>Articles</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{route('article-list')}}">
-              <i class="bi bi-circle"></i><span>All articles</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{route('add_article')}}">
-              <i class="bi bi-circle"></i><span>Add articles</span>
-            </a>
-          </li>
+            <li>
+                <a href="{{route('add_article')}}">
+                    <i class="bi bi-circle"></i><span>Add articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('article-list')}}">
+                    <i class="bi bi-circle"></i><span>All articles</span>
+                </a>
+            </li>
         </ul>
       </li><!-- End Components Nav -->
 
@@ -141,16 +160,16 @@
           <i class="bi bi-journal-text"></i><span>Books</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{route('book-list')}}">
-              <i class="bi bi-circle"></i><span>All books</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{route('add_book')}}">
-              <i class="bi bi-circle"></i><span>Add book</span>
-            </a>
-          </li>
+            <li>
+                <a href="{{route('book-list')}}">
+                <i class="bi bi-circle"></i><span>All books</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('add_book')}}">
+                <i class="bi bi-circle"></i><span>Add book</span>
+                </a>
+            </li>
         </ul>
       </li><!-- End Forms Nav -->
 
@@ -159,16 +178,16 @@
           <i class="bi bi-layout-text-window-reverse"></i><span>Project</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{route('project-list')}}">
-              <i class="bi bi-circle"></i><span>All Projects</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{route('add_project')}}">
-              <i class="bi bi-circle"></i><span>Add project</span>
-            </a>
-          </li>
+            <li>
+                <a href="{{route('add_project')}}">
+                    <i class="bi bi-circle"></i><span>Add project</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('project-list')}}">
+                <i class="bi bi-circle"></i><span>All Projects</span>
+                </a>
+            </li>
         </ul>
       </li><!-- End Tables Nav -->
 
@@ -177,16 +196,17 @@
           <i class="bi bi-bar-chart"></i><span>Research</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li>
+                <a href="{{route('add_research')}}">
+                  <i class="bi bi-circle"></i><span>Add reseach</span>
+                </a>
+              </li>
           <li>
             <a href="{{route('research-list')}}">
               <i class="bi bi-circle"></i><span>All researches</span>
             </a>
           </li>
-          <li>
-            <a href="{{route('add_research')}}">
-              <i class="bi bi-circle"></i><span>Add reseach</span>
-            </a>
-          </li>
+
         </ul>
       </li><!-- End Charts Nav -->
 
@@ -215,7 +235,9 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+
   <!-- Vendor JS Files -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="{{asset('admin_assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('admin_assets/vendor/apexcharts/apexcharts.min.js')}}"></script>
   <script src="{{asset('admin_assets/vendor/chart.js/chart.umd.js')}}"></script>
@@ -228,7 +250,40 @@
   <!-- Template Main JS File -->
   <script src="{{asset('admin_assets/js/main.js')}}"></script>
 
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<script>
+    window.addEventListener('message_alert', message => {
+        alertify.set('notifier','delay', 5);
+        alertify.set('notifier','position', 'bottom-left');
+        alertify.message(message.detail);
+     });
+
+    window.addEventListener('success_alert', message => {
+        alertify.set('notifier','delay', 5);
+        alertify.set('notifier','position', 'bottom-left');
+        alertify.success(message.detail);
+     });
+
+     window.addEventListener('warning_alert', message => {
+        alertify.set('notifier','delay', 5);
+        alertify.set('notifier','position', 'bottom-left');
+        alertify.warning(message.detail);
+     });
+
+     window.addEventListener('error_alert', message => {
+        alertify.set('notifier','delay', 5);
+        alertify.set('notifier','position', 'bottom-left');
+        alertify.error(message.detail);
+     });
+
+ </script>
+
 @livewireScripts()
+
+@stack('script')
+
 </body>
 
 </html>

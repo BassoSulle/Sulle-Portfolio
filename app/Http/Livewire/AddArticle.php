@@ -8,18 +8,19 @@ use App\Models\Article;
 
 class AddArticle extends Component
 {
+
     public $article_id, $article, $title, $article_link, $date, $status;
 
     public $editMode = false;
-    
+
     public function mount($article) {
 
         if($article) {
 
             $this->editMode = true;
-            
+
             $this->article_id = $article;
-            
+
             $this->article = Article::find($article);
 
             $this->title = $this->article->title;
@@ -28,9 +29,9 @@ class AddArticle extends Component
             $this->status = $this->article->status;
 
         }
-        
+
     }
-    
+
     protected $rules = [
             'title' => ['required', 'string'],
             'article_link' => ['required', 'string'],
@@ -64,11 +65,20 @@ class AddArticle extends Component
                 'status' => $validatedData['status'],
             ]);
 
+
+
             if($article) {
-                return redirect()->route('article-list');
+                 $this->dispatchBrowserEvent('success_alert', 'Article  Added sucessfully.!');
+
+                    return redirect()->route('article-list');
 
             }
-            
+            else{
+
+                return $this->dispatchBrowserEvent('error_alert', 'Article updation failed!.');
+
+            }
+
         } else {
             $article = Article::where('id', $this->article_id)->update([
                 'title' =>$validatedData['title'],
@@ -78,21 +88,45 @@ class AddArticle extends Component
             ]);
 
             if($article) {
-                return redirect()->route('article-list');
-                
+                $this->dispatchBrowserEvent('success_alert', 'Article updated successfully');
+                // return redirect()->route('article-list');
+
             }
 
-        }        
-                
+        }
+
     }
+
+        public function getDeleteArticle(int $article_id){
+
+            $this->article_id=$article_id;
+        }
+
+
+        public function deleteArticle(int $article_id){
+            $this->article_id=$article_id;
+            $articledeleted =Article::where( 'id',$this->article_id )->delete();
+
+dd($this->article_id);
+
+            if($articledeleted){
+                $this->dispatchBrowserEvent('success_alert', 'Article Deleted successfully');
+
+            }
+            else{
+                $this->dispatchBrowserEvent('error_alert', 'Action failed try again..!');
+
+            }
+        }
+
 
     public function render()
     {
         $articles=Article::all();
-            
+
         return view('livewire.add-article',[
                 'articles'=>'$articles'
         ]);
-        
+
     }
 }

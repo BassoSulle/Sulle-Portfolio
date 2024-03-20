@@ -7,3 +7,5 @@
 @section('content')
     <livewire:add-article :article=null />
 @endsection
+
+

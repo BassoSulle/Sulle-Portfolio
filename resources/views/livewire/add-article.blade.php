@@ -1,9 +1,17 @@
 <div>
+
     <div class="col-lg-12">
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">{{ $editMode == true ? 'Edit article' : 'Add article' }}</h5>
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-md-6">
+                        <h5 class="card-title">{{ $editMode == false ? 'Add article' : 'Edit article' }}</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{{route('article-list')}}" class="btn btn-success" style="float: right;">Back</a>
+                    </div>
+                </div>
 
                 <form class="row g-3" wire:submit.prevent="save_article">
                     @csrf
@@ -49,10 +57,10 @@
 
                         <div class="text-end my-3">
                             <button type="reset" class="btn btn-secondary ">Clear</button>
-                            @if ($editMode == true)
-                                <button type="submit" class="btn btn-success">Update</button>
-                            @else
+                            @if ($editMode == false)
                                 <button type="submit" class="btn btn-primary">Save</button>
+                            @else
+                                <button type="submit" class="btn btn-success">Update</button>
                             @endif
                         </div>
                 </form><!-- Vertical Form -->
