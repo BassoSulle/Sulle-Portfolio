@@ -41,6 +41,14 @@ class adminController extends Controller
 
     }
 
+    public function edit_article($article){
+
+        return view('admin_panel.edit_article', [
+            'article' => $article
+        ]);
+
+    }
+
     public function add_book(){
 
         return view('admin_panel.add_book');
