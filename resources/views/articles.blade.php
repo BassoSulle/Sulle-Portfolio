@@ -26,25 +26,21 @@ Articles
 
           {{-- <div class="col-lg-7 about-img" style="background-image: url(assets/img/about.jpg);"></div> --}}
 
-          <div class="row gy-4">
+          <div class="row gy-6 justify-content-center">
           <div class="col-lg-8" style="left: 5cm;" >
             <h4>List of my articles  </h4>
             <div >
               <p>Below are listed all publications in date order. Links are provided to most. Some publications have copyright restrictions, but where possible alternates are provided if you do not have access. If you cannot get access to particular articles, please be in touch at ians(at)ids.ac.uk,
                  and I will try and send you a copy (not possible for books I am afraid).</p>
-              <p>Vitae autem velit excepturi fugit. Animi ad non. Eligendi et non nesciunt suscipit repellendus porro in quo eveniet. Molestias in maxime doloremque.</p>
 
-              <p>Vitae autem velit excepturi fugit. Animi ad non. Eligendi et non nesciunt suscipit repellendus porro in quo eveniet. Molestias in maxime doloremque.</p>
+                @forelse ($articles as $article)
+                    <p>
+                      {{$article->author}} ({{$article->publication_year}}), <a href="{{ $article->article_link }}" style="text-decoration: underline;" target="-blanck">{{ $article->title }}</a>.
+                        <span></span>
+                    </p>
+                @empty
 
-              <p>Vitae autem velit excepturi fugit. Animi ad non. Eligendi et non nesciunt suscipit repellendus porro in quo eveniet. Molestias in maxime doloremque.</p>
-
-              <p>Vitae autem velit excepturi fugit. Animi ad non. Eligendi et non nesciunt suscipit repellendus porro in quo eveniet. Molestias in maxime doloremque.</p>
-
-              <p>Vitae autem velit excepturi fugit. Animi ad non. Eligendi et non nesciunt suscipit repellendus porro in quo eveniet. Molestias in maxime doloremque.</p>
-
-              <p>Vitae autem velit excepturi fugit. Animi ad non. Eligendi et non nesciunt suscipit repellendus porro in quo eveniet. Molestias in maxime doloremque.</p>
-
-              <p>Vitae autem velit excepturi fugit. Animi ad non. Eligendi et non nesciunt suscipit repellendus porro in quo eveniet. Molestias in maxime doloremque.</p>
+                @endforelse
 
               {{-- <div class="watch-video d-flex align-items-center position-relative">
                 <i class="bi bi-play-circle"></i>

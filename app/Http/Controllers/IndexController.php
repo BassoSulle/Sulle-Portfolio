@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Article;
 
 class IndexController extends Controller
 {
@@ -20,7 +21,8 @@ class IndexController extends Controller
     }
     public function articles(){
 
-        return view('articles');
+        $articles=Article::latest()->get();
+        return view('articles', compact('articles'));
 
     }
     public function projects(){

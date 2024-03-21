@@ -7,7 +7,9 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Aurhors</th>
                         <th scope="col">Title</th>
+                        <th scope="col">Year</th>
                         <th scope="col">Link</th>
                         <th scope="col">Status</th>
                         <th scope="col">Date</th>
@@ -21,10 +23,12 @@
                     @forelse ($articles as $article)
                         <tr>
                             <th scope="row">{{ $i++ }}</th>
+                            <td>{{ $article->author }}</td>
                             <td>
                                 <a href="{{ $article->article_link }}" class="text-primary"
                                     target="_blank">{{ $article->title }}</a>
                             </td>
+                            <td>{{ $article->publication_year }}</td>
                             <td>{{ $article->article_link }}</td>
                             <td>
                                 @if ($article->status == true)
@@ -64,7 +68,7 @@
                 {{-- form inputs --}}
                 <form class="row g-3 align-items-center" wire:submit.prevent="DeleteArticle">
                     <div class="text-center my-2 mt-3">
-                        Do you want to delete this Module?
+                        Do you want to delete this Article?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal"

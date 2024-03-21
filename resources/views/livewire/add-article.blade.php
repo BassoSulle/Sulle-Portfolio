@@ -15,6 +15,35 @@
 
                 <form class="row g-3" wire:submit.prevent="save_article">
                     @csrf
+                <div class="col-md-6">
+                    <div class="col-12">
+                        <label for="title" class="form-label">Authors</label>
+                        <input type="text" class="form-control" wire:model="author" id="title">
+                        @error('author')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-12">
+                        <label for="title" class="form-label">Year of Publication</label>
+                        <select
+                        wire:model="publication_year" class="form-control">
+                            <?php
+                            $currentYear = date("Y");
+                            $startYear =2000; // You can adjust this based on your needs
+                            for ($year = $currentYear; $year >= $startYear; $year--) {
+                                echo "<option value=\"$year\">$year</option>";
+                            }
+                            ?>
+                        </select>
+
+                        @error('publication_year')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+
                     <div class="col-12">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" class="form-control" wire:model="title" id="title">

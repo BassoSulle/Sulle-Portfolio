@@ -9,7 +9,8 @@ use App\Models\Article;
 class AddArticle extends Component
 {
 
-    public $article_id, $article, $title, $article_link, $date, $status;
+    public $article_id, $article, $title, $article_link, $date, $status, $author, $publication_year;
+
 
     public $editMode = false;
 
@@ -23,6 +24,8 @@ class AddArticle extends Component
 
             $this->article = Article::find($article);
 
+            $this->author = $this->article->author;
+            $this->publication_year = $this->article->publication_year;
             $this->title = $this->article->title;
             $this->article_link = $this->article->article_link;
             $this->date = $this->article->date;
@@ -33,6 +36,8 @@ class AddArticle extends Component
     }
 
     protected $rules = [
+            'author' => ['required', 'string'],
+            'publication_year' => ['required'],
             'title' => ['required', 'string'],
             'article_link' => ['required', 'string'],
             'date'=>'required',
@@ -59,6 +64,8 @@ class AddArticle extends Component
 
         if($this->editMode == false) {
             $article = Article::create([
+                'author' =>$validatedData['author'],
+                'publication_year' =>$validatedData['publication_year'],
                 'title' =>$validatedData['title'],
                 'article_link' =>$validatedData['article_link'],
                 'date' =>$validatedData['date'],
@@ -81,6 +88,8 @@ class AddArticle extends Component
 
         } else {
             $article = Article::where('id', $this->article_id)->update([
+                'author' =>$validatedData['author'],
+                'publication_year' =>$validatedData['publication_year'],
                 'title' =>$validatedData['title'],
                 'article_link' =>$validatedData['article_link'],
                 'date' =>$validatedData['date'],
@@ -89,7 +98,7 @@ class AddArticle extends Component
 
             if($article) {
                 $this->dispatchBrowserEvent('success_alert', 'Article updated successfully');
-                // return redirect()->route('article-list');
+                return redirect()->route('article-list');
 
             }
 
@@ -107,7 +116,7 @@ class AddArticle extends Component
             $this->article_id=$article_id;
             $articledeleted =Article::where( 'id',$this->article_id )->delete();
 
-dd($this->article_id);
+// dd($this->article_id);
 
             if($articledeleted){
                 $this->dispatchBrowserEvent('success_alert', 'Article Deleted successfully');
