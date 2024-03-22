@@ -4,6 +4,6 @@
 Add book
 @endsection
 @section('content')
-<livewire:add-book/>
+<livewire:add-book :book="null"/>
 @endsection
 

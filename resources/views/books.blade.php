@@ -31,55 +31,27 @@ Books
         </div>
       </div>
     </div>
-
-<section id="books" class="books">
-<div class="container" data-aos="fade-up">
- <div class="row position-relative">
-
-        <div class="row position-relative">
-            <div class="col-lg-5">
-            <img src="assets/img/book2.jpg" class="col-lg-7">
-            </div>
-            <div class="col-lg-7">
-            <h4>
-                <a style="font-weight: bold; color: #e7a801; text-decoration: underline;" href="#">The cover page of testing book</a>
-
-            </h4>
-            <p>This is the cover page of the testing book.</p>
-            <p>(Sulle Elibariki Basso, Arusha Tanzania,2022).</p>
-            </div>
-
-
-</div>
-</div>
-
-</section>
-
-<section id="books" class="books">
-    <div class="container" data-aos="fade-up">
-     <div class="row position-relative">
-
+        @foreach ($books as $book )
+        <section id="books" class="books">
+            <div class="container" data-aos="fade-up">
             <div class="row position-relative">
-                <div class="col-lg-5">
-                <img src="assets/img/book1.jpg" class="col-lg-7">
-                </div>
-                <div class="col-lg-7">
-                <h4>
-                    <a style="font-weight: bold; color: #e7a801; text-decoration: underline;" href="#">Lerge size book for testing</a>
 
-                </h4>
-                <p>This is the cover page of the large book in term of size to see what images are supporsed to have.</p>
-                <p>(Sulle Emmanuel, Dodoma,2019).</p>
-                </div>
-
-
-    </div>
-    </div>
-
-    </section>
-
-
-
+                    <div class="row position-relative">
+                        <div class="col-lg-5">
+                        <img src="{{asset('storage/books/' .$book->book_cover)}}" class="col-lg-7">
+                        </div>
+                        <div class="col-lg-7">
+                        <h4>
+                            <a style="font-weight: bold; color: #e7a801; text-decoration: underline;" href="#">{{$book->title}}</a>
+                        </h4>
+                        <p>{{$book->book_desc}}.</p>
+                        <p>Authors: {{$book->author}}</p>
+                        <p>({{$book->publisher}}, {{$book->location}}, {{$book->publication_year}})</p>
+                        </div>
+            </div>
+            </div>
+        </section>
+        @endforeach
 
   </main><!-- End #main -->
 @endsection

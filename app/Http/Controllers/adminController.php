@@ -54,6 +54,14 @@ class adminController extends Controller
         return view('admin_panel.add_book');
 
     }
+
+    public function edit_book($book){
+
+        return view('admin_panel.edit_book',[
+            'book'=>$book
+        ]);
+
+    }
     public function add_project(){
 
         return view('admin_panel.add_project');

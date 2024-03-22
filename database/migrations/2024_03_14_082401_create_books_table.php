@@ -17,7 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string("title");
             $table->text("book_desc");
-            $table->string("image");
+            $table->string("book_cover");
+            $table->string("author");
+            $table->string("publisher");
+            $table->string("location");
+            $table->string("publication_year");
             $table->string("date");
             $table->boolean('status')->default(false);
             $table->timestamps();

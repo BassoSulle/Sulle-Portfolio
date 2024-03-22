@@ -160,14 +160,15 @@
           <i class="bi bi-journal-text"></i><span>Books</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-                <a href="{{route('book-list')}}">
-                <i class="bi bi-circle"></i><span>All books</span>
-                </a>
-            </li>
+
             <li>
                 <a href="{{route('add_book')}}">
                 <i class="bi bi-circle"></i><span>Add book</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('book-list')}}">
+                <i class="bi bi-circle"></i><span>All books</span>
                 </a>
             </li>
         </ul>

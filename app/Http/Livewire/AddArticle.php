@@ -76,7 +76,6 @@ class AddArticle extends Component
 
             if($article) {
                  $this->dispatchBrowserEvent('success_alert', 'Article  Added sucessfully.!');
-
                     return redirect()->route('article-list');
 
             }
@@ -115,8 +114,6 @@ class AddArticle extends Component
         public function deleteArticle(int $article_id){
             $this->article_id=$article_id;
             $articledeleted =Article::where( 'id',$this->article_id )->delete();
-
-// dd($this->article_id);
 
             if($articledeleted){
                 $this->dispatchBrowserEvent('success_alert', 'Article Deleted successfully');

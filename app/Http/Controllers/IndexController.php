@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Book;
 
 class IndexController extends Controller
 {
@@ -41,9 +42,10 @@ class IndexController extends Controller
         return view('researches');
 
     }
-    public function books(){
 
-        return view('books');
+    public function books(){
+        $books=Book::where('status', true)->latest()->get();
+        return view('books',compact('books'));
 
     }
     public function contact(){

@@ -1,9 +1,9 @@
 @extends('layout.admin')
 
 @section('page_title')
-    Edit articles
+    Edit Book
 @endsection
 
 @section('content')
-    <livewire:add-article :article="$article" />
+    <livewire:add-book :book="$book" />
 @endsection
