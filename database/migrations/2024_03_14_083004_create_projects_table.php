@@ -17,8 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string("title");
             $table->string("image");
-            $table->text("project_desc");
-            $table->boolean('is_active')->default(false);
+            $table->string("institute_name");
+            $table->string("position");
+            $table->text("description");
+            $table->string("start_date");
+            $table->string("end_date");
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

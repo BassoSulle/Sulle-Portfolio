@@ -1,8 +1,8 @@
 @extends('layout.admin')
 
 @section('page_title')
-    Add project
+    Edit project
 @endsection
 @section('content')
-    <livewire:add-project :project=null />
+    <livewire:add-project :project="$project" />
 @endsection
