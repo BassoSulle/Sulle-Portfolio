@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Research;
 use App\Models\Book;
 
 class IndexController extends Controller
@@ -39,7 +40,8 @@ class IndexController extends Controller
     }
     public function researches(){
 
-        return view('researches');
+        $researches=Research::where('status',true)->latest()->get();
+        return view('researches',compact('researches'));
 
     }
 

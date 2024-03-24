@@ -29,7 +29,10 @@
                                     target="_blank">{{ $article->title }}</a>
                             </td>
                             <td>{{ $article->publication_year }}</td>
-                            <td>{{ $article->article_link }}</td>
+                            <td>
+                                <a href="{{ $article->article_link }}" class="text-primary" target="_blank">
+                                    {{ $article->article_link }}</a>
+                            </td>
                             <td>
                                 @if ($article->status == true)
                                     <span class="badge bg-success">Visible</span>

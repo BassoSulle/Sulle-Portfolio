@@ -72,6 +72,14 @@ class adminController extends Controller
         return view('admin_panel.add_research');
 
     }
+
+    public function edit_research($research){
+
+        return view('admin_panel.edit_research',[
+            'research'=>$research
+            ]);
+
+    }
     public function profile(){
 
         return view('admin_panel.profile');

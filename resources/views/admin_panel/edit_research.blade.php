@@ -1,9 +1,9 @@
 @extends('layout.admin')
 
 @section('page_title')
-Add research
-@endsection
-@section('content')
-<livewire:add-research :research="null" />
+    Edit Research
 @endsection
 
+@section('content')
+    <livewire: add-research :research="$research" />
+@endsection

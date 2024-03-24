@@ -7,7 +7,7 @@ use Livewire\Component;
 class BookList extends Component
 {
 
-    public $bool_id;
+    public $book_id;
 
     public function getDeleteBook($book_id){
     $this->book_id= $book_id;

@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('research', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->string("image"); //VARCH for imange path(URL)
+            $table->string("research_image"); //VARCH for imange path(URL)
             $table->string("research_desc");
-            $table->boolean('is_active')->default(false);
+            $table->string("date");
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
