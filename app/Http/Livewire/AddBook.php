@@ -11,37 +11,36 @@ use Illuminate\Support\Facades\File;
 class AddBook extends Component
 {
     use WithFileUploads;
-    public $title,$book_desc,$book_cover,$author,$publisher,$location,$publication_year,$date,$status;
 
-    public $book_id;
-    public $imageName;
+    public $book, $title,$book_desc,$book_cover,$author,$publisher,$location,$publication_year,$date,$status;
+
+    public $book_id, $imageName;
+    
     public $editMode=false;
 
     public function mount($book){
-if($book){
+        if($book){
 
-    $this->editMode=true;
+            $this->editMode=true;
 
-    $this->book_id=$book;
+            $this->book_id=$book;
 
-    $this->book=Book::find($book);
+            $this->book=Book::find($book);
 
-        $this->title=$this->book->title;
-        $this->book_desc=$this->book->book_desc;
-        // $this->book_cover=$this->book->book_cover;
-        $this->publication_year = $this->book->publication_year;
-        $this->author = $this->book->author;
-        $this->publisher = $this->book->publisher;
-        $this->location = $this->book->location;
-        $this->date = $this->book->date;
-        $this->status = $this->book->status;
+                $this->title=$this->book->title;
+                $this->book_desc=$this->book->book_desc;
+                // $this->book_cover=$this->book->book_cover;
+                $this->publication_year = $this->book->publication_year;
+                $this->author = $this->book->author;
+                $this->publisher = $this->book->publisher;
+                $this->location = $this->book->location;
+                $this->date = $this->book->date;
+                $this->status = $this->book->status;
 
-}
-
-
-
+        }
 
     }
+
     protected $rules = [
         'author' => ['required', 'string'],
         'publication_year' => ['required'],
@@ -55,8 +54,7 @@ if($book){
     ];
 
     public function updated($fields){
-
-    $this->validateOnly($fields);
+        $this->validateOnly($fields);
 
     }
 
@@ -79,6 +77,7 @@ if($book){
                 // Store the image in the storage folder with its original name
                 $this->book_cover->storeAs('books', $this->imageName, 'public');
             }
+            
             $book = Book::create([
                 'author'=>$validatedData['author'],
                 'title'=>$validatedData['title'],
@@ -99,8 +98,8 @@ if($book){
                     return $this->dispatchBrowserEvent('error_alert', 'Error occured try again later!.');
 
                 }
-            }
-        else{
+
+        } else{
             if (!empty($this->book_cover)) {
                 $path = 'storage/books/'.$this->book->book_cover;
 
@@ -131,23 +130,25 @@ if($book){
                 'publication_year'=>$validatedData['publication_year'],
             ]);
 
-                if($book){
-                    $this->dispatchBrowserEvent('success_alert', 'Book  updated sucessfully.!');
-                        return redirect()->route('book-list');
-                }
-                else{
-                    return $this->dispatchBrowserEvent('error_alert', 'Error occured try again later!.');
+            if($book){
+                $this->dispatchBrowserEvent('success_alert', 'Book  updated successfully!');
+                    return redirect()->route('book-list');
+            }
+            else{
+                return $this->dispatchBrowserEvent('error_alert', 'Error occurred try again later!');
 
-                }
             }
         }
+
+    }
 
 
     public function render()
     {
-        $books=Book::all();
+        $books =Book::latest()->get();
+        
         return view('livewire.add-book',[
-            'books'=>'$books'
-            ]);
+            'books'=> $books
+        ]);
     }
 }

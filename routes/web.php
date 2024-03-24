@@ -24,7 +24,7 @@ use App\Http\Controllers\Auth\LoginController;
 Route::get('/', [IndexController::class, 'aboutme'])->name('aboutme');
 Route::get('/articles', [IndexController::class, 'articles'])->name('articles');
 Route::get('/projects', [IndexController::class, 'projects'])->name('projects');
-Route::get('/project_details', [IndexController::class, 'project_details'])->name('project_details');
+Route::get('/project/{project_id}/details', [IndexController::class, 'project_details'])->name('project_details');
 Route::get('/researches', [IndexController::class, 'researches'])->name('researches');
 Route::get('/books', [IndexController::class, 'books'])->name('books');
 Route::get('/contact', [IndexController::class, 'contact'])->name('contact');
@@ -51,6 +51,11 @@ Route::get('/edit_article/{article}', [adminController::class, 'edit_article'])-
 Route::get('/add_book', [adminController::class, 'add_book'])->name('add_book');
 Route::get('/edit_book/{book}', [adminController::class, 'edit_book'])->name('edit_book');
 Route::get('/add_project', [adminController::class, 'add_project'])->name('add_project');
+Route::get('/edit_project/{project}', [adminController::class, 'edit_project'])->name('edit_project');
 Route::get('/add_research', [adminController::class, 'add_research'])->name('add_research');
+<<<<<<< HEAD
 Route::get('/edit_research/{research}', [adminController::class, 'edit_research'])->name('edit_research');
 Route::get('/profile', [adminController::class, 'profile'])->name('profile');
+=======
+Route::get('/profile', [adminController::class, 'profile'])->name('profile');
+>>>>>>> origin/bashiri

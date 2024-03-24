@@ -6,20 +6,23 @@ use Livewire\Component;
 
 class BookList extends Component
 {
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/bashiri
     public $book_id;
 
     public function getDeleteBook($book_id){
-    $this->book_id= $book_id;
-    return $this->dispatchBrowserEvent('openDeleteModal');
+        $this->book_id= $book_id;
+        
+        return $this->dispatchBrowserEvent('openDeleteModal');
 
-
-        }
+    }
 
     public function DeleteBook(){
-        $deletedbook=Book::where('id',$this->book_id)->delete();
+        $deleted_book=Book::where('id',$this->book_id)->delete();
 
-        if ($deletedbook){
+        if ($deleted_book){
             $this->clearForm();
             $this->dispatchBrowserEvent('closeDeleteModal');
             $this->dispatchBrowserEvent('error_alert', 'Book deleted successfully');
@@ -34,6 +37,7 @@ class BookList extends Component
         $this->book_id='';
 
     }
+
     public function render()
     {
         $books=Book::all();
@@ -42,4 +46,5 @@ class BookList extends Component
         'books'=>$books,
         ]);
     }
+    
 }

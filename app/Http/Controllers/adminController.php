@@ -67,6 +67,15 @@ class adminController extends Controller
         return view('admin_panel.add_project');
 
     }
+
+    public function edit_project($project){
+
+        return view('admin_panel.edit_project', [
+            'project' => $project
+        ]);
+
+    }
+    
     public function add_research(){
 
         return view('admin_panel.add_research');

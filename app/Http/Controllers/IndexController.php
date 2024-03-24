@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Research;
 use App\Models\Book;
+use App\Models\Project;
 
 class IndexController extends Controller
 {
@@ -23,19 +24,21 @@ class IndexController extends Controller
     }
     public function articles(){
 
-        $articles=Article::latest()->get();
+        $articles = Article::where('status', true)->latest()->get();
         return view('articles', compact('articles'));
 
     }
     public function projects(){
 
-        return view('projects');
+        $projects = Project::where('status', true)->latest()->get();
+        return view('projects', compact('projects'));
 
     }
 
-    public function project_details(){
+    public function project_details($project_id){
 
-        return view('project_details');
+        $project = Project::find($project_id);
+        return view('project_details', compact('project'));
 
     }
     public function researches(){
