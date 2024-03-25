@@ -54,11 +54,11 @@
 
                 <div class="logo-container"
                     style="position: fixed; top: 0; left: 0; padding: 10px; width: 100%; background-color: #000000; z-index: 1000;">
-                    <a href="index.html" class="logo d-flex align-items-center">
+                    <a href="{{route('aboutme')}}" class="logo d-flex align-items-center">
                         <!-- Uncomment the line below if you also wish to use an image logo -->
                         {{-- <img src="assets/img/logo.png" alt=""> --}}
-                        <h1><span style="color:rgba(238, 237, 236, 0.982)">Selle,</span><span
-                                style="color:#feb900">Emmanuel</span></h1>
+                        <h1><span style="color:rgba(238, 237, 236, 0.982)">EMMANUEL </span><span
+                                style="color:#feb900">SULLE</span></h1>
                     </a>
                 </div>
 

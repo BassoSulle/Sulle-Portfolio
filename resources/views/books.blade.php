@@ -20,26 +20,30 @@
             </div>
         </div><!-- End Breadcrumbs -->
 
-        <section id="about" class="about">
-            <div class="container" data-aos="fade-up">
-                <div class="col-lg-7" align-center>
-                    <p>
-                        Below is a listing of all books and journal special issues that I have written or edited.
-                        Links to purchase or download are provided if available.
-                    </p>
-                </div>
+        <section id="about" class="about gy-6 justify-content-center " >
+            <div class="container " data-aos="fade-up">
+            <div class="row justify-content-center">
+            <div class="col-lg-10" align-center>
+                                <p>
+                                    Below, you'll find a comprehensive listing of all the books and journal special issues that I have authored or edited throughout my career.
+                                     From groundbreaking research to insightful analyses, these publications cover a wide array of topics and disciplines,
+                                     reflecting my dedication to advancing knowledge and contributing to scholarly discourse.
+                                </p>
+                            </div>
+            </div>
+
             </div>
             </div>
             @foreach ($books as $book)
-                <section id="books" class="books">
+                <section id="books" class="books ">
                     <div class="container" data-aos="fade-up">
-                        <div class="row position-relative">
+                        <div class="row  position-relative">
 
-                            <div class="row position-relative">
-                                <div class="col-lg-5">
+                            <div class="row justify-content-center ">
+                                <div class="col-lg-5 ">
                                     <img src="{{ asset('storage/books/' . $book->book_cover) }}" class="col-lg-7">
                                 </div>
-                                <div class="col-lg-7">
+                                <div class="col-lg-5">
                                     <h4>
                                         <a style="font-weight: bold; color: #e7a801; text-decoration: underline;"
                                             href="#">{{ $book->title }}</a>

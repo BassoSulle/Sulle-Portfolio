@@ -33,29 +33,33 @@ Route::get('/contact', [IndexController::class, 'contact'])->name('contact');
 //Log in routes
 
 // Auth::routes();
-Route::get('login', [LoginController::class, 'show_login'])->name('login');
-Route::post('authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
-Route::get('/verify_email', [LoginController::class, 'verify_email'])->name('verity_email');
-Route::get('/reset_password', [LoginController::class, 'reset_password'])->name('reset_password');
+Route::group(['prefix'=>'admin'],function(){
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', [LoginController::class, 'show_login'])->name('login');
+    Route::post('authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
+    Route::get('/verify_email', [LoginController::class, 'verify_email'])->name('verity_email');
+    Route::get('/reset_password', [LoginController::class, 'reset_password'])->name('reset_password');
 
-//Admin Routes.
-Route::get('/admin', [adminController::class, 'index'])->name('dashboard');
-Route::get('/article-list', [adminController::class, 'article'])->name('article-list');
-Route::get('/book-list', [adminController::class, 'books'])->name('book-list');
-Route::get('/project-list', [adminController::class, 'projects'])->name('project-list');
-Route::get('/research-list', [adminController::class, 'research'])->name('research-list');
-Route::get('/add_article', [adminController::class, 'add_article'])->name('add_article');
-Route::get('/edit_article/{article}', [adminController::class, 'edit_article'])->name('edit_article');
-Route::get('/add_book', [adminController::class, 'add_book'])->name('add_book');
-Route::get('/edit_book/{book}', [adminController::class, 'edit_book'])->name('edit_book');
-Route::get('/add_project', [adminController::class, 'add_project'])->name('add_project');
-Route::get('/edit_project/{project}', [adminController::class, 'edit_project'])->name('edit_project');
-Route::get('/add_research', [adminController::class, 'add_research'])->name('add_research');
-<<<<<<< HEAD
-Route::get('/edit_research/{research}', [adminController::class, 'edit_research'])->name('edit_research');
-Route::get('/profile', [adminController::class, 'profile'])->name('profile');
-=======
-Route::get('/profile', [adminController::class, 'profile'])->name('profile');
->>>>>>> origin/bashiri
+    // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    //Admin Routes.
+    Route::group(["middleware"=>['auth']],function(){
+
+        Route::get('/dashboard', [adminController::class, 'index'])->name('dashboard');
+        Route::get('/article-list', [adminController::class, 'article'])->name('article-list');
+        Route::get('/book-list', [adminController::class, 'books'])->name('book-list');
+        Route::get('/project-list', [adminController::class, 'projects'])->name('project-list');
+        Route::get('/research-list', [adminController::class, 'research'])->name('research-list');
+        Route::get('/add_article', [adminController::class, 'add_article'])->name('add_article');
+        Route::get('/edit_article/{article}', [adminController::class, 'edit_article'])->name('edit_article');
+        Route::get('/add_book', [adminController::class, 'add_book'])->name('add_book');
+        Route::get('/edit_book/{book}', [adminController::class, 'edit_book'])->name('edit_book');
+        Route::get('/add_project', [adminController::class, 'add_project'])->name('add_project');
+        Route::get('/edit_project/{project}', [adminController::class, 'edit_project'])->name('edit_project');
+        Route::get('/add_research', [adminController::class, 'add_research'])->name('add_research');
+        Route::get('/edit_research/{research}', [adminController::class, 'edit_research'])->name('edit_research');
+        Route::get('/profile', [adminController::class, 'profile'])->name('profile');
+        Route::get('/profile', [adminController::class, 'profile'])->name('profile');
+    });
+});
+

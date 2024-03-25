@@ -75,7 +75,7 @@ class AddResearch extends Component
         $research=Research::create([
             'title'=>$validatedData['title'],
             'research_desc'=>$validatedData['research_desc'],
-            'research_image'=>$this->research_image,
+            'research_image'=>$this->imageName,
             'date'=>$validatedData['date'],
             'status'=>$validatedData['status'],
 
@@ -105,18 +105,18 @@ class AddResearch extends Component
                 $this->imageName =$this->name.'.'.$this->research_image->getClientOriginalExtension();
 
                 // Store the image in the storage folder with its original name
-                $this->book_cover->storeAs('researches', $this->imageName, 'public');
+                $this->research_image->storeAs('researches', $this->imageName, 'public');
 
             }
         } else {
-            $this->imageName = $this->book->book_cover;
+            $this->imageName = $this->research->research_image;
             // $this->image->storeAs('service_icons', $this->this->imageName, 'public');
         }
 
         $research=Research::where('id',$this->research_id)->update([
             'title'=>$validatedData['title'],
             'research_desc'=>$validatedData['research_desc'],
-            'research_image'=>$this->research_image,
+            'research_image'=>$this->imageName,
             'date'=>$validatedData['date'],
             'status'=>$validatedData['status'],
 

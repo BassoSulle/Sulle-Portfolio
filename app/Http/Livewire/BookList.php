@@ -6,15 +6,12 @@ use Livewire\Component;
 
 class BookList extends Component
 {
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/bashiri
     public $book_id;
 
     public function getDeleteBook($book_id){
         $this->book_id= $book_id;
-        
+
         return $this->dispatchBrowserEvent('openDeleteModal');
 
     }
@@ -46,5 +43,5 @@ class BookList extends Component
         'books'=>$books,
         ]);
     }
-    
+
 }

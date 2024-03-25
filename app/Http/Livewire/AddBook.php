@@ -15,7 +15,7 @@ class AddBook extends Component
     public $book, $title,$book_desc,$book_cover,$author,$publisher,$location,$publication_year,$date,$status;
 
     public $book_id, $imageName;
-    
+
     public $editMode=false;
 
     public function mount($book){
@@ -77,7 +77,7 @@ class AddBook extends Component
                 // Store the image in the storage folder with its original name
                 $this->book_cover->storeAs('books', $this->imageName, 'public');
             }
-            
+
             $book = Book::create([
                 'author'=>$validatedData['author'],
                 'title'=>$validatedData['title'],
@@ -107,7 +107,7 @@ class AddBook extends Component
                     File::delete($path);
 
                     // Get the original file name
-                    $this->imageName =$this->name.'.'.$this->book_cover->getClientOriginalExtension();
+                    $this->imageName =$this->title.'.'.$this->book_cover->getClientOriginalExtension();
 
                     // Store the image in the storage folder with its original name
                     $this->book_cover->storeAs('books', $this->imageName, 'public');
@@ -146,7 +146,7 @@ class AddBook extends Component
     public function render()
     {
         $books =Book::latest()->get();
-        
+
         return view('livewire.add-book',[
             'books'=> $books
         ]);
