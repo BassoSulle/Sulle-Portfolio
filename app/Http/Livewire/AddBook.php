@@ -72,7 +72,7 @@ class AddBook extends Component
         if($this->editMode==false){
             if (!empty($this->book_cover)) {
                 // Get the original file name
-                $this->imageName = $this->title.'.'.$this->book_cover->getClientOriginalExtension();
+                $this->imageName =date('YmdHi').'.'.$this->book_cover->getClientOriginalExtension();
 
                 // Store the image in the storage folder with its original name
                 $this->book_cover->storeAs('books', $this->imageName, 'public');
@@ -107,7 +107,7 @@ class AddBook extends Component
                     File::delete($path);
 
                     // Get the original file name
-                    $this->imageName =$this->title.'.'.$this->book_cover->getClientOriginalExtension();
+                    $this->imageName =date('YmdHi').'.'.$this->book_cover->getClientOriginalExtension();
 
                     // Store the image in the storage folder with its original name
                     $this->book_cover->storeAs('books', $this->imageName, 'public');

@@ -20,7 +20,7 @@
                               </div>
                           <div class="col-12">
                             <label for="inputEmail4" class="form-label">Discription</label>
-                            <input type="text" wire:model="research_desc" class="form-control" id="inputEmail4">
+                            <textarea wire:ignore type="text" class="form-control" rows="5" wire:model="research_desc" id=""></textarea>
                             @error('research_desc')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror

@@ -18,6 +18,7 @@ class AddResearch extends Component
     public $editMode=false;
 
     public function mount($research){
+
         if($research){
 
             $this->editMode = true;
@@ -32,7 +33,7 @@ class AddResearch extends Component
                 $this->status = $this->research->status;
           }
 
-// dd($research);
+//  dd($research);
 
     }
 
@@ -41,7 +42,7 @@ class AddResearch extends Component
     protected $rules = [
         'title' => ['required', 'string'],
         'research_desc' => ['required'],
-        'research_image' => ['nullable', 'image'],
+        // 'research_image' => ['nullable', 'image'],
         'date'=>'required',
         'status' => ['nullable']
     ];
@@ -66,7 +67,7 @@ class AddResearch extends Component
 
             if (!empty($this->research_image)) {
                 // Get the original file name
-                $this->imageName = $this->title.'.'.$this->research_image->getClientOriginalExtension();
+                $this->imageName =date('YmdHi').'.'.$this->research_image->getClientOriginalExtension();
 
                 // Store the image in the storage folder with its original name
                 $this->research_image->storeAs('researches', $this->imageName, 'public');
@@ -96,13 +97,13 @@ class AddResearch extends Component
     else{
 
         if (!empty($this->research_image)) {
-            $path = 'storage/research/'.$this->research->research_image;
+            $path = 'storage/researches/'.$this->research->research_image;
 
             if (File::exists($path)) {
                 File::delete($path);
 
                 // Get the original file name
-                $this->imageName =$this->name.'.'.$this->research_image->getClientOriginalExtension();
+                $this->imageName =date('YmdHi').'.'.$this->research_image->getClientOriginalExtension();
 
                 // Store the image in the storage folder with its original name
                 $this->research_image->storeAs('researches', $this->imageName, 'public');

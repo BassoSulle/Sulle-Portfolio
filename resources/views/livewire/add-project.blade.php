@@ -26,7 +26,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-12 my-2">
-                                <label for="editor" class="form-label">Institute name</label>
+                                <label for="editor" class="form-label">Project description</label>
                                 {{-- <input type="text" class="form-control" wire:model="institute_name" id="inputNanme4"> --}}
                                 <textarea wire:ignore type="text" class="form-control" rows="5" wire:model="description" id=""></textarea>
                                 @error('description')

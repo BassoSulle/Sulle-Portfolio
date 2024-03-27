@@ -43,28 +43,20 @@
     <body>
 
         <!-- ======= Header ======= -->
-        <header id="header" class="header d-flex align-items-center">
-            <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <header id="header" class="header d-flex align-items-center" style="position: fixed; height: 23px; background-color: #000000;">
+            <div class="container-fluid container-xl d-flex align-items-center justify-content-between"
+            >
 
-
-
+                <a href="index.html" class="logo d-flex align-items-center">
+                    <!-- Uncomment the line below if you also wish to use an image logo -->
+                    <!-- <img src="assets/img/logo.png" alt=""> -->
+                    <h1>EMMANUEL <span>SULLE</span></h1>
+                  </a>
 
                 <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
                 <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
-                <div class="logo-container"
-                    style="position: fixed; top: 0; left: 0; padding: 10px; width: 100%; background-color: #000000; z-index: 1000;">
-                    <a href="{{route('aboutme')}}" class="logo d-flex align-items-center">
-                        <!-- Uncomment the line below if you also wish to use an image logo -->
-                        {{-- <img src="assets/img/logo.png" alt=""> --}}
-                        <h1><span style="color:rgba(238, 237, 236, 0.982)">EMMANUEL </span><span
-                                style="color:#feb900">SULLE</span></h1>
-                    </a>
-                </div>
-
-                <nav id="navbar" class="navbar"
-                    style="position: fixed; top: 0; right: 0; width: 100%; margin-right:2cm; background-color: #000000; z-index: 1000; text-align: right;">
-                    <ul style="list-style: none; padding: o; margin: 0; position: absolute; right: 0; top: 0;">
+                <nav id="navbar" class="navbar">
+                    <ul>
                         {{-- <li><a href="" class="active">Home</a></li> --}}
                         <li><a href="{{ route('aboutme') }}" style="color:#feb900">About Me</a></li>
                         <li><a href="{{ route('articles') }}" style="color:#feb900">Articles</a></li>
@@ -73,31 +65,7 @@
                         <li><a href="{{ route('researches') }}" style="color: #feb900">Researches</a></li>
                         <li><a href="{{ route('contact') }}" style="color: #feb900">Contact</a></li>
                         <ul>
-
-                            {{-- <a href="index.html" class="logo d-flex align-items-center" style="text-align: right; top: 0; position: absolute; left: 0;">
-                    <!-- Uncomment the line below if you also wish to use an image logo -->
-                   <!-- <img src="assets/img/logo.png" alt="">-->
-                    <h1><span style="color:rgba(238, 237, 236, 0.982)">Sulle,</span><span style="color:#feb900">Emmanuel</span></h1>
-                  </a> --}}
-
-                            {{-- <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li> --}}
-                        </ul>
                 </nav><!-- .navbar -->
-
             </div>
         </header><!-- End Header -->
 
@@ -135,44 +103,9 @@
                             </div>
                         </div><!-- End footer info column-->
 
-                        {{-- <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><a href="">About Me</a></li>
-              <li><a href="">Services</a></li>
-              <li><a href="">Project</a></li>
-              <li><a href="">Contact</a></li>
-            </ul>
-          </div><!-- End footer links column--> --}}
-
-                        {{-- <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><a href="#">Road Marking</a></li>
-              <li><a href="#">Traffic Signage </a></li>
-              <li><a href="#">Road Finishing Specialists</a></li>
-            </ul>
-          </div><!-- End footer links column--> --}}
-
                     </div>
                 </div>
             </div>
-
-            {{-- <div class="footer-legal text-center position-relative">
-      <div class="container">
-        <div class="copyright">
-          &copy; Copyright <strong><span>CarbonTanzania</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/ -->
-          <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
-        </div>
-      </div>
-    </div> --}}
-
         </footer>
         <!-- End Footer -->
 

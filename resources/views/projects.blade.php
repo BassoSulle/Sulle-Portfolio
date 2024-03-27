@@ -45,7 +45,7 @@
                                     <div class="portfolio-info">
                                         <h4>{{ $project->title }}</h4>
                                         <p>{{ Str::limit($project->description, 20) }}</p>
-                                        <a href="{{ asset('storage/projects/' . $project->image) }}"
+                                        <a href="{{ asset('storage/projects/' .$project->image) }}"
                                             title="{{ $project->title }}" data-gallery="portfolio-gallery-remodeling"
                                             class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                         <a href="{{ route('project_details', ['project_id' => $project->id]) }}"

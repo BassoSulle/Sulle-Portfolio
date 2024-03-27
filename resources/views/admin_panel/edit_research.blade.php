@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    <livewire: add-research :research="$research" />
+    <livewire:add-research :research="$research" />
 @endsection

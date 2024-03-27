@@ -8,13 +8,14 @@
     <main id="main">
 
         <!-- ======= Breadcrumbs ======= -->
-        <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+        <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/research_bkg.jpeg');">
             <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
                 <h2>Researches</h2>
-                {{-- <ol>
-          <li>About</li>
-        </ol> --}}
+                <ol>
+                    <li><a href="{{ route('aboutme') }}">Home</a></li>
+                    <li>researches</li>
+                </ol>
 
             </div>
         </div><!-- End Breadcrumbs -->

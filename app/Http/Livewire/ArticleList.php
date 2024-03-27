@@ -47,10 +47,14 @@ class ArticleList extends Component
 
     }
 
+    public function clearForm(){
+
+    $this->article_id="";
+    }
     public function render()
     {
 
-    $articles=Article::all();
+    $articles=Article::latest()->get();
         return view('livewire.article-list',['articles'=>$articles]);
     }
 }

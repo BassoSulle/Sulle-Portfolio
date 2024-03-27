@@ -75,7 +75,7 @@ class adminController extends Controller
         ]);
 
     }
-    
+
     public function add_research(){
 
         return view('admin_panel.add_research');

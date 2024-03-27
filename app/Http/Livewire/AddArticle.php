@@ -128,7 +128,7 @@ class AddArticle extends Component
 
     public function render()
     {
-        $articles=Article::all();
+        $articles=Article::latest()->get();
 
         return view('livewire.add-article',[
                 'articles'=>'$articles'

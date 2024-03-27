@@ -26,8 +26,11 @@
                 <div class="row position-relative">
 
                     <div class="col-lg-5 about-img" style="background-image: url(assets/img/sulle.jpeg);">
-                        <h4>Emmanuel Sulle, PhD</h4>
-                        <h5>University of Aga Khan</h5>
+
+{{-- <div class="col-lg-5">
+    <h4>Emmanuel Sulle, PhD</h4>
+    <h5>University of Aga Khan</h5>
+</div> --}}
                         <a href="#" class="d-flex align-items-center justify-content-center"><i
                                 class="bi bi-linkedin"></i></a>
 

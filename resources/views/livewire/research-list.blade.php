@@ -32,7 +32,7 @@
                         @if ($research->status==true)
                         <span class="badge bg-success">Visible</span>
                         @else
-                        <span class="badge bg-success">Visible</span>
+                        <span class="badge bg-danger">Hiden</span>
                         @endif
                    </td>
                     <td>{{$research->date}}</td>
